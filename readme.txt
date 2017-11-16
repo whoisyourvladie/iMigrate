@@ -1,0 +1,1 @@
+Before first run of the program please start the script file iMigrateScript.sql
