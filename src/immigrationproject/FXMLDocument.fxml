@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootPane" prefHeight="564.0" prefWidth="775.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="immigrationproject.FXMLDocumentController">
+   <children>
+      <MenuBar maxHeight="62.0" maxWidth="775.0" minHeight="30.0" minWidth="775.0" prefHeight="30.0" prefWidth="775.0" AnchorPane.bottomAnchor="534.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem fx:id="newEntryMI" mnemonicParsing="false" onAction="#newEntryHandler" text="New Entry" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem fx:id="updateMI" mnemonicParsing="false" onAction="#updateRecordHandler" text="Update Entry" />
+                  <MenuItem fx:id="deleteMI" mnemonicParsing="false" onAction="#deleteRecordHandler" text="Delete Entry" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Reports">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#printJob" text="View Application" />
+              </items>
+            </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem fx:id="aboutMI" mnemonicParsing="false" onAction="#aboutWindow" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <TabPane fx:id="tabPane" layoutY="30.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="478.0" prefWidth="775.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab id="tab_mailTAB" fx:id="tab_mailTAB" text="Main">
+            <content>
+              <AnchorPane fx:id="tabMainAnchorPane" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="451.0" prefWidth="750.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="16.0" layoutY="88.0" prefHeight="20.0" prefWidth="100.0" text="Family Name" />
+                        <Label alignment="CENTER_RIGHT" layoutX="16.0" layoutY="298.0" prefHeight="20.0" prefWidth="100.0" text="Country of  birth" textAlignment="RIGHT" />
+                        <Label alignment="CENTER_RIGHT" layoutX="16.0" layoutY="238.0" prefHeight="20.0" prefWidth="100.0" text="City of birth" textAlignment="RIGHT" />
+                        <Label alignment="CENTER_RIGHT" layoutX="16.0" layoutY="208.0" prefHeight="20.0" prefWidth="100.0" text="Date of birth" textAlignment="RIGHT" />
+                        <Label alignment="TOP_RIGHT" layoutX="16.0" layoutY="58.0" prefHeight="20.0" prefWidth="100.0" text="Given Name(s)" textAlignment="RIGHT" />
+                        <Label alignment="CENTER_RIGHT" layoutX="16.0" layoutY="118.0" prefHeight="20.0" prefWidth="100.0" text="Sex" textAlignment="RIGHT" />
+                        <Label alignment="CENTER_RIGHT" layoutX="16.0" layoutY="178.0" prefHeight="20.0" prefWidth="100.0" text="Passport" textAlignment="RIGHT" />
+                        <Label alignment="CENTER_RIGHT" layoutX="16.0" layoutY="268.0" prefHeight="20.0" prefWidth="100.0" text="Province of  birth" textAlignment="RIGHT" />
+                        <Label alignment="CENTER_RIGHT" layoutX="407.0" layoutY="28.0" prefHeight="20.0" prefWidth="54.0" style="-fx-font-weight: bold;" text="Address" textAlignment="RIGHT" />
+                        <Label alignment="CENTER_RIGHT" layoutX="365.0" layoutY="56.0" prefHeight="20.0" prefWidth="100.0" text="Building No" textAlignment="RIGHT" />
+                        <Label alignment="CENTER_RIGHT" layoutX="365.0" layoutY="83.0" prefHeight="20.0" prefWidth="100.0" text="Street Name" textAlignment="RIGHT" />
+                        <Label alignment="CENTER_RIGHT" layoutX="365.0" layoutY="113.0" prefHeight="20.0" prefWidth="100.0" text="Appartment" textAlignment="RIGHT" />
+                        <Label alignment="CENTER_RIGHT" layoutX="365.0" layoutY="143.0" prefHeight="20.0" prefWidth="100.0" text="City" textAlignment="RIGHT" />
+                        <Label alignment="CENTER_RIGHT" layoutX="365.0" layoutY="173.0" prefHeight="20.0" prefWidth="100.0" text="Province" textAlignment="RIGHT" />
+                        <Label alignment="CENTER_RIGHT" layoutX="365.0" layoutY="203.0" prefHeight="20.0" prefWidth="100.0" text="Country" textAlignment="RIGHT" />
+                        <Label alignment="CENTER_RIGHT" layoutX="365.0" layoutY="233.0" prefHeight="20.0" prefWidth="100.0" text="Postal Code" textAlignment="RIGHT" />
+                        <TextField id="fnameTF" fx:id="fnameTF" layoutX="121.0" layoutY="58.0" prefHeight="20.0" prefWidth="190.0" />
+                        <TextField fx:id="lnameTF" layoutX="121.0" layoutY="88.0" prefHeight="20.0" prefWidth="190.0" />
+                        <RadioButton fx:id="sex_mRB" layoutX="157.0" layoutY="121.0" mnemonicParsing="false" text="M">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="sexTG" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="sex_fRB" layoutX="216.0" layoutY="121.0" mnemonicParsing="false" text="F" toggleGroup="$sexTG" />
+                        <ComboBox id="marital_statusCB" fx:id="marital_statusCB" layoutX="121.0" layoutY="148.0" prefHeight="25.0" prefWidth="190.0" />
+                        <TextField fx:id="passportTF" layoutX="121.0" layoutY="178.0" prefHeight="20.0" prefWidth="190.0" />
+                        <DatePicker fx:id="dobDP" layoutX="121.0" layoutY="208.0" prefHeight="20.0" prefWidth="190.0" />
+                        <TextField fx:id="citybirthTF" layoutX="121.0" layoutY="238.0" prefHeight="20.0" prefWidth="190.0" />
+                        <TextField fx:id="provincebirthTF" layoutX="121.0" layoutY="268.0" prefHeight="20.0" prefWidth="190.0" />
+                        <TextField fx:id="countrybirthTF" layoutX="121.0" layoutY="298.0" prefHeight="20.0" prefWidth="190.0" />
+                        <DatePicker fx:id="dateDocsRecDP" layoutX="121.0" layoutY="328.0" prefHeight="20.0" prefWidth="190.0" />
+                        <TextField fx:id="address_bldTF" layoutX="475.0" layoutY="53.0" prefHeight="20.0" prefWidth="190.0" />
+                        <TextField fx:id="address_streetTF" layoutX="475.0" layoutY="83.0" prefHeight="20.0" prefWidth="190.0" />
+                        <TextField fx:id="address_appTF" layoutX="475.0" layoutY="113.0" prefHeight="20.0" prefWidth="190.0" />
+                        <TextField fx:id="address_cityTF" layoutX="475.0" layoutY="143.0" prefHeight="20.0" prefWidth="190.0" />
+                        <TextField fx:id="address_prvTF" layoutX="475.0" layoutY="173.0" prefHeight="20.0" prefWidth="190.0" />
+                        <TextField fx:id="address_countryTF" layoutX="475.0" layoutY="203.0" prefHeight="20.0" prefWidth="190.0" />
+                        <TextField fx:id="address_zipTF" layoutX="475.0" layoutY="233.0" prefHeight="20.0" prefWidth="190.0" />
+                        <TextField fx:id="address_phoneTF" layoutX="475.0" layoutY="263.0" prefHeight="20.0" prefWidth="190.0" />
+                        <ComboBox fx:id="emp_statusCB" layoutX="479.0" layoutY="299.0" prefHeight="25.0" prefWidth="186.0" styleClass="combo-box" stylesheets="@style.css" />
+                        <ComboBox id="intended_cityCB" fx:id="intended_cityCB" layoutX="209.0" layoutY="370.0" prefHeight="25.0" prefWidth="188.0" />
+                        <RadioButton fx:id="stayQC_yesRB" layoutX="524.0" layoutY="361.0" mnemonicParsing="false" onAction="#stayInQCYesHandler" text="Yes">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="stayTG" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="stayQC_noRB" layoutX="581.0" layoutY="361.0" mnemonicParsing="false" onAction="#stayInQCNoHandler" selected="true" text="No" toggleGroup="$stayTG" />
+                        <DatePicker fx:id="stayQC_fromDP" disable="true" layoutX="463.0" layoutY="405.0" prefHeight="25.0" prefWidth="120.0" />
+                        <DatePicker fx:id="stayQC_toDP" disable="true" layoutX="627.0" layoutY="405.0" prefHeight="29.0" prefWidth="120.0" />
+                        <Label alignment="CENTER_RIGHT" layoutX="31.0" layoutY="370.0" prefHeight="20.0" prefWidth="172.0" text=" Intended city in Québec to live" textAlignment="RIGHT" />
+                        <Label alignment="CENTER_RIGHT" layoutX="29.0" layoutY="405.0" prefHeight="20.0" prefWidth="170.0" text="Intended profession in Québec:" textAlignment="RIGHT" />
+                        <TextField fx:id="intendedProf_TF" layoutX="209.0" layoutY="405.0" prefHeight="20.0" prefWidth="190.0" />
+                        <Label alignment="CENTER_RIGHT" layoutX="365.0" layoutY="301.0" prefHeight="20.0" prefWidth="105.0" text="Employment Status" textAlignment="RIGHT" />
+                        <Label alignment="CENTER_RIGHT" layoutX="365.0" layoutY="263.0" prefHeight="20.0" prefWidth="100.0" text="Phone" textAlignment="RIGHT" />
+                        <Label alignment="CENTER_RIGHT" layoutX="474.0" layoutY="338.0" prefHeight="20.0" prefWidth="192.0" text="Stay in Quebec in the last 10 years?" textAlignment="RIGHT" />
+                        <Label alignment="CENTER_RIGHT" layoutX="426.0" layoutY="405.0" prefHeight="20.0" prefWidth="31.0" text="From" textAlignment="RIGHT" />
+                        <Label alignment="CENTER_RIGHT" layoutX="602.0" layoutY="405.0" prefHeight="20.0" prefWidth="19.0" text="To" textAlignment="RIGHT" />
+                        <Label alignment="CENTER_RIGHT" layoutX="16.0" layoutY="148.0" prefHeight="20.0" prefWidth="100.0" text="Marital Status" textAlignment="RIGHT" />
+                        <Label alignment="CENTER_RIGHT" layoutX="6.0" layoutY="328.0" prefHeight="20.0" prefWidth="110.0" text="Date docs received" textAlignment="RIGHT" />
+                        <Label alignment="CENTER_RIGHT" layoutX="16.0" layoutY="26.0" prefHeight="20.0" prefWidth="100.0" text="Applicant NO:" textAlignment="RIGHT" />
+                        <Label fx:id="scoreL" alignment="CENTER" layoutX="678.0" layoutY="84.0" prefHeight="40.0" prefWidth="60.0" style="-fx-border-style: solid; -fx-border-width: 3; -fx-background-color: white; -fx-border-color: #e9a042; -fx-text-fill: #e9a042;" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font></Label>
+                        <Label layoutX="693.0" layoutY="60.0" text="Score" />
+                        <TextField fx:id="applicantNumberTF" editable="false" focusTraversable="false" layoutX="121.0" layoutY="26.0" prefHeight="20.0" prefWidth="190.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="tab_dependTAB" text="Family Members">
+            <content>
+              <AnchorPane fx:id="familyAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="482.0" prefWidth="727.0">
+                     <children>
+                        <Label alignment="TOP_RIGHT" layoutX="35.0" layoutY="16.0" prefHeight="20.0" prefWidth="152.0" text="Number of family members" textAlignment="RIGHT" />
+                        <ComboBox fx:id="familyMemNo_CB" layoutX="194.0" layoutY="14.0" onAction="#familyMembersCBHandler" prefHeight="25.0" prefWidth="64.0" visibleRowCount="11" />
+                        <RadioButton fx:id="familyQC_noRB" layoutX="544.0" layoutY="16.0" mnemonicParsing="false" onAction="#stayInQCNoHandler" selected="true" text="No">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="famQCTG" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="familyQC_yesRB" layoutX="499.0" layoutY="16.0" mnemonicParsing="false" onAction="#stayInQCYesHandler" text="Yes" toggleGroup="$famQCTG" />
+                        <GridPane fx:id="familyMembGridPane" layoutX="8.0" layoutY="37.0" prefHeight="352.0" prefWidth="745.0">
+                          <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="222.0" minWidth="10.0" prefWidth="173.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="266.0" minWidth="10.0" prefWidth="167.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="255.0" minWidth="10.0" prefWidth="124.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="227.0" minWidth="10.0" prefWidth="109.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="197.0" minWidth="10.0" prefWidth="102.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="120.0" minWidth="10.0" prefWidth="71.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="213.0" text="Family Name" />
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="198.0" text="Given Name" GridPane.columnIndex="1" />
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="213.0" text="Relation" GridPane.columnIndex="2" />
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="213.0" text="Birth Date" GridPane.columnIndex="3" />
+                              <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="36.0" prefWidth="122.0" text="City and Country of Birth" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="4">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="36.0" prefWidth="122.0" text="Accompanying" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="5">
+                                 <font>
+                                    <Font size="7.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="dep1_lnameTF" prefHeight="20.0" prefWidth="190.0" GridPane.rowIndex="1" />
+                              <TextField fx:id="dep2_lnameTF" prefHeight="20.0" prefWidth="190.0" GridPane.rowIndex="2" />
+                              <TextField fx:id="dep3_lnameTF" prefHeight="20.0" prefWidth="190.0" GridPane.rowIndex="3" />
+                              <TextField fx:id="dep4_lnameTF" prefHeight="20.0" prefWidth="190.0" GridPane.rowIndex="4" />
+                              <TextField fx:id="dep5_lnameTF" prefHeight="20.0" prefWidth="190.0" GridPane.rowIndex="5" />
+                              <TextField fx:id="dep6_lnameTF" prefHeight="20.0" prefWidth="190.0" GridPane.rowIndex="6" />
+                              <TextField fx:id="dep7_lnameTF" prefHeight="20.0" prefWidth="190.0" GridPane.rowIndex="7" />
+                              <TextField fx:id="dep8_lnameTF" prefHeight="20.0" prefWidth="190.0" GridPane.rowIndex="8" />
+                              <TextField fx:id="dep9_lnameTF" prefHeight="20.0" prefWidth="190.0" GridPane.rowIndex="9" />
+                              <TextField fx:id="dep10_lnameTF" prefHeight="20.0" prefWidth="190.0" GridPane.rowIndex="10" />
+                              <TextField fx:id="dep1_fnameTF" prefHeight="25.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="dep2_fnameTF" prefHeight="20.0" prefWidth="190.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <TextField fx:id="dep3_fnameTF" prefHeight="20.0" prefWidth="190.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <TextField fx:id="dep4_fnameTF" prefHeight="20.0" prefWidth="190.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <TextField fx:id="dep5_fnameTF" prefHeight="20.0" prefWidth="190.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <TextField fx:id="dep6_fnameTF" prefHeight="20.0" prefWidth="190.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                              <TextField fx:id="dep7_fnameTF" prefHeight="20.0" prefWidth="190.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                              <TextField fx:id="dep8_fnameTF" prefHeight="20.0" prefWidth="190.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                              <TextField fx:id="dep9_fnameTF" prefHeight="20.0" prefWidth="190.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                              <TextField fx:id="dep10_fnameTF" prefHeight="20.0" prefWidth="190.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                              <ComboBox fx:id="dep1_relationCB" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                              <ComboBox fx:id="dep2_relationCB" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                              <ComboBox fx:id="dep3_relationCB" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                              <ComboBox fx:id="dep4_relationCB" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                              <ComboBox fx:id="dep5_relationCB" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                              <ComboBox fx:id="dep6_relationCB" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                              <ComboBox fx:id="dep7_relationCB" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                              <ComboBox fx:id="dep8_relationCB" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+                              <ComboBox fx:id="dep9_relationCB" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+                              <ComboBox fx:id="dep10_relationCB" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="10" />
+                              <DatePicker fx:id="dep1_dobTF" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                              <DatePicker fx:id="dep2_dobTF" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                              <DatePicker fx:id="dep3_dobTF" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                              <DatePicker fx:id="dep4_dobTF" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                              <DatePicker fx:id="dep5_dobTF" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                              <DatePicker fx:id="dep6_dobTF" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+                              <DatePicker fx:id="dep7_dobTF" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+                              <DatePicker fx:id="dep8_dobTF" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+                              <DatePicker fx:id="dep9_dobTF" GridPane.columnIndex="3" GridPane.rowIndex="9" />
+                              <DatePicker fx:id="dep10_dobTF" GridPane.columnIndex="3" GridPane.rowIndex="10" />
+                              <TextField fx:id="dep1_birthTF" prefHeight="25.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                              <TextField fx:id="dep2_birthTF" prefHeight="25.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                              <TextField fx:id="dep3_birthTF" prefHeight="25.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                              <TextField fx:id="dep4_birthTF" prefHeight="25.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                              <TextField fx:id="dep5_birthTF" prefHeight="25.0" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+                              <TextField fx:id="dep6_birthTF" prefHeight="25.0" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+                              <TextField fx:id="dep7_birthTF" prefHeight="25.0" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+                              <TextField fx:id="dep8_birthTF" prefHeight="25.0" GridPane.columnIndex="4" GridPane.rowIndex="8" />
+                              <TextField fx:id="dep9_birthTF" prefHeight="25.0" GridPane.columnIndex="4" GridPane.rowIndex="9" />
+                              <TextField fx:id="dep10_birthTF" prefHeight="25.0" GridPane.columnIndex="4" GridPane.rowIndex="10" />
+                              <ComboBox fx:id="dep1_accCB" prefHeight="25.0" prefWidth="69.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                              <ComboBox fx:id="dep2_accCB" prefWidth="150.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                              <ComboBox fx:id="dep3_accCB" prefWidth="150.0" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+                              <ComboBox fx:id="dep4_accCB" prefWidth="150.0" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+                              <ComboBox fx:id="dep5_accCB" prefWidth="150.0" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+                              <ComboBox fx:id="dep6_accCB" prefWidth="150.0" GridPane.columnIndex="5" GridPane.rowIndex="6" />
+                              <ComboBox fx:id="dep7_accCB" prefWidth="150.0" GridPane.columnIndex="5" GridPane.rowIndex="7" />
+                              <ComboBox fx:id="dep8_accCB" prefWidth="150.0" GridPane.columnIndex="5" GridPane.rowIndex="8" />
+                              <ComboBox fx:id="dep9_accCB" prefWidth="150.0" GridPane.columnIndex="5" GridPane.rowIndex="9" />
+                              <ComboBox fx:id="dep10_accCB" prefWidth="150.0" GridPane.columnIndex="5" GridPane.rowIndex="10" />
+                           </children>
+                        </GridPane>
+                        <Label alignment="CENTER_RIGHT" layoutX="383.0" layoutY="15.0" prefHeight="20.0" prefWidth="107.0" text="Has family in QC? " textAlignment="RIGHT" />
+                     </children>
+                     <padding>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </padding>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="educationTAB" text="Education">
+              <content>
+                <AnchorPane fx:id="educationAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label alignment="TOP_RIGHT" layoutX="8.0" layoutY="15.0" prefHeight="20.0" prefWidth="140.0" text="Highest level of education" textAlignment="RIGHT" />
+                        <ComboBox fx:id="educationLevel_CB" layoutX="160.0" layoutY="15.0" prefHeight="25.0" prefWidth="263.0" />
+                        <Label alignment="TOP_RIGHT" layoutX="8.0" layoutY="50.0" prefHeight="20.0" prefWidth="140.0" text="Area of training" textAlignment="RIGHT" />
+                        <ComboBox fx:id="areaOfTrainingCB" layoutX="161.0" layoutY="50.0" prefHeight="25.0" prefWidth="262.0" />
+                        <Label alignment="TOP_RIGHT" layoutX="440.0" layoutY="50.0" prefHeight="20.0" prefWidth="140.0" text="Date diploma obtained" textAlignment="RIGHT" />
+                        <DatePicker fx:id="dateDiplomaObtDP" layoutX="590.0" layoutY="50.0" prefWidth="145.0" />
+                        <Label alignment="TOP_RIGHT" layoutX="440.0" layoutY="15.0" prefHeight="20.0" prefWidth="140.0" text="Where diploma obtained" textAlignment="RIGHT" />
+                        <ComboBox fx:id="whereDiplomaObtained_CB" layoutX="590.0" layoutY="15.0" prefHeight="25.0" prefWidth="145.0" />
+                     <GridPane fx:id="educationGridPane" layoutX="8.0" layoutY="110.0" prefHeight="352.0" prefWidth="734.0">
+                          <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="222.0" minWidth="10.0" prefWidth="90.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="266.0" minWidth="10.0" prefWidth="104.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="255.0" minWidth="10.0" prefWidth="226.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="227.0" minWidth="10.0" prefWidth="115.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="197.0" minWidth="111.0" prefWidth="197.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                              <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="213.0" text="From" />
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="213.0" text="To" GridPane.columnIndex="1" />
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="225.0" text="Institution Name" GridPane.columnIndex="2" />
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="183.0" text="Type of Diploma" GridPane.columnIndex="3" />
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="195.0" text="Specialization" wrapText="true" GridPane.columnIndex="4">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="education1_SpecializationTF" prefHeight="25.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                              <TextField fx:id="education2_SpecializationTF" prefHeight="25.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                              <TextField fx:id="education3_SpecializationTF" prefHeight="25.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                              <TextField fx:id="education4_SpecializationTF" prefHeight="25.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                              <TextField fx:id="education5_SpecializationTF" prefHeight="25.0" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+                              <TextField fx:id="education6_SpecializationTF" prefHeight="25.0" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+                              <TextField fx:id="education7_SpecializationTF" prefHeight="25.0" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+                              <TextField fx:id="education8_SpecializationTF" prefHeight="25.0" GridPane.columnIndex="4" GridPane.rowIndex="8" />
+                              <TextField fx:id="education9_SpecializationTF" prefHeight="25.0" GridPane.columnIndex="4" GridPane.rowIndex="9" />
+                              <TextField fx:id="education10_SpecializationTF" prefHeight="25.0" GridPane.columnIndex="4" GridPane.rowIndex="10" />
+                              <DatePicker fx:id="education1_FromTF" GridPane.rowIndex="1" />
+                              <DatePicker fx:id="education2_FromTF" GridPane.rowIndex="2" />
+                              <DatePicker fx:id="education3_FromTF" GridPane.rowIndex="3" />
+                              <DatePicker fx:id="education4_FromTF" GridPane.rowIndex="4" />
+                              <DatePicker fx:id="education5_FromTF" GridPane.rowIndex="5" />
+                              <DatePicker fx:id="education6_FromTF" GridPane.rowIndex="6" />
+                              <DatePicker fx:id="education7_FromTF" GridPane.rowIndex="7" />
+                              <DatePicker fx:id="education8_FromTF" GridPane.rowIndex="8" />
+                              <DatePicker fx:id="education9_FromTF" GridPane.rowIndex="9" />
+                              <DatePicker fx:id="education10_FromTF" GridPane.rowIndex="10" />
+                              <DatePicker fx:id="education1_ToTF" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <DatePicker fx:id="education2_ToTF" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <DatePicker fx:id="education3_ToTF" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <DatePicker fx:id="education4_ToTF" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <DatePicker fx:id="education5_ToTF" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <DatePicker fx:id="education6_ToTF" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                              <DatePicker fx:id="education7_ToTF" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                              <DatePicker fx:id="education8_ToTF" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                              <DatePicker fx:id="education9_ToTF" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                              <DatePicker fx:id="education10_ToTF" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                              <TextField fx:id="education1_InstNameTF" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                              <TextField fx:id="education1_DiplomaTypeTF" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                              <TextField fx:id="education2_InstNameTF" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                              <TextField fx:id="education2_DiplomaTypeTF" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                              <TextField fx:id="education3_InstNameTF" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                              <TextField fx:id="education3_DiplomaTypeTF" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                              <TextField fx:id="education4_InstNameTF" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                              <TextField fx:id="education4_DiplomaTypeTF" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                              <TextField fx:id="education5_InstNameTF" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                              <TextField fx:id="education5_DiplomaTypeTF" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                              <TextField fx:id="education6_InstNameTF" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                              <TextField fx:id="education6_DiplomaTypeTF" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+                              <TextField fx:id="education7_InstNameTF" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                              <TextField fx:id="education7_DiplomaTypeTF" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+                              <TextField fx:id="education8_InstNameTF" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+                              <TextField fx:id="education8_DiplomaTypeTF" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+                              <TextField fx:id="education9_InstNameTF" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+                              <TextField fx:id="education9_DiplomaTypeTF" GridPane.columnIndex="3" GridPane.rowIndex="9" />
+                              <TextField fx:id="education10_InstNameTF" GridPane.columnIndex="2" GridPane.rowIndex="10" />
+                              <TextField fx:id="education10_DiplomaTypeTF" GridPane.columnIndex="3" GridPane.rowIndex="10" />
+                           </children>
+                        </GridPane>
+                        <Label alignment="TOP_RIGHT" layoutX="8.0" layoutY="85.0" prefHeight="20.0" prefWidth="211.0" text="Number of educational institutions" textAlignment="RIGHT" />
+                        <ComboBox fx:id="numberOfEducInstitCB" layoutX="243.0" layoutY="85.0" onAction="#educationCBHandler" prefHeight="25.0" prefWidth="64.0" visibleRowCount="11" />
+                     </children>
+                </AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="workTAB" text="Work Experience">
+              <content>
+                <AnchorPane fx:id="employmentAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label alignment="TOP_RIGHT" layoutX="30.0" layoutY="18.0" prefHeight="20.0" prefWidth="110.0" text="Has job offer in QC?" textAlignment="RIGHT" />
+                        <RadioButton fx:id="jobOffer_yesRB" layoutX="147.0" layoutY="18.0" mnemonicParsing="false" onAction="#jobOffferYesHandler" text="Yes">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="jobOfferTG" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="jobOffer_noRB" layoutX="197.0" layoutY="18.0" mnemonicParsing="false" onAction="#jobOffferNoHandler" selected="true" text="No" toggleGroup="$jobOfferTG" />
+                        <Label fx:id="empNameJobOfferL" alignment="TOP_RIGHT" disable="true" layoutX="260.0" layoutY="17.0" prefHeight="20.0" prefWidth="102.0" text="Employer's Name " textAlignment="RIGHT" />
+                        <TextField fx:id="empNameJobOfferTF" disable="true" layoutX="362.0" layoutY="14.0" prefHeight="25.0" prefWidth="351.0" />
+                        <Label fx:id="empAddressJobOfferL" alignment="TOP_RIGHT" disable="true" layoutX="30.0" layoutY="47.0" prefHeight="20.0" prefWidth="108.0" text="Employer's Address" textAlignment="RIGHT" />
+                        <TextField fx:id="empAddressJobOfferTF" disable="true" layoutX="153.0" layoutY="45.0" prefHeight="25.0" prefWidth="559.0" />
+                     <GridPane fx:id="workExpGridPane" layoutX="8.0" layoutY="100.0" prefHeight="352.0" prefWidth="734.0">
+                          <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="222.0" minWidth="10.0" prefWidth="107.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="266.0" minWidth="10.0" prefWidth="120.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="255.0" minWidth="10.0" prefWidth="198.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="227.0" minWidth="10.0" prefWidth="180.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="153.0" minWidth="111.0" prefWidth="111.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                              <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="213.0" text="From" />
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="213.0" text="To" GridPane.columnIndex="1" />
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="213.0" text="Company Name" GridPane.columnIndex="2" />
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="183.0" text="Job Title" GridPane.columnIndex="3" />
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="122.0" text="Country" wrapText="true" GridPane.columnIndex="4">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="workExp1_CompCountryTF" prefHeight="25.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                              <TextField fx:id="workExp2_CompCountryTF" prefHeight="25.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                              <TextField fx:id="workExp3_CompCountryTF" prefHeight="25.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                              <TextField fx:id="workExp4_CompCountryTF" prefHeight="25.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                              <TextField fx:id="workExp5_CompCountryTF" prefHeight="25.0" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+                              <TextField fx:id="workExp6_CompCountryTF" prefHeight="25.0" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+                              <TextField fx:id="workExp7_CompCountryTF" prefHeight="25.0" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+                              <TextField fx:id="workExp8_CompCountryTF" prefHeight="25.0" GridPane.columnIndex="4" GridPane.rowIndex="8" />
+                              <TextField fx:id="workExp9_CompCountryTF" prefHeight="25.0" GridPane.columnIndex="4" GridPane.rowIndex="9" />
+                              <TextField fx:id="workExp10_CompCountryTF" prefHeight="25.0" GridPane.columnIndex="4" GridPane.rowIndex="10" />
+                              <DatePicker fx:id="workExp1_FromTF" GridPane.rowIndex="1" />
+                              <DatePicker fx:id="workExp2_FromTF" GridPane.rowIndex="2" />
+                              <DatePicker fx:id="workExp3_FromTF" GridPane.rowIndex="3" />
+                              <DatePicker fx:id="workExp4_FromTF" GridPane.rowIndex="4" />
+                              <DatePicker fx:id="workExp5_FromTF" GridPane.rowIndex="5" />
+                              <DatePicker fx:id="workExp6_FromTF" GridPane.rowIndex="6" />
+                              <DatePicker fx:id="workExp7_FromTF" GridPane.rowIndex="7" />
+                              <DatePicker fx:id="workExp8_FromTF" GridPane.rowIndex="8" />
+                              <DatePicker fx:id="workExp9_FromTF" GridPane.rowIndex="9" />
+                              <DatePicker fx:id="workExp10_FromTF" GridPane.rowIndex="10" />
+                              <DatePicker fx:id="workExp1_ToTF" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <DatePicker fx:id="workExp2_ToTF" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <DatePicker fx:id="workExp3_ToTF" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <DatePicker fx:id="workExp4_ToTF" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <DatePicker fx:id="workExp5_ToTF" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <DatePicker fx:id="workExp6_ToTF" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                              <DatePicker fx:id="workExp7_ToTF" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                              <DatePicker fx:id="workExp8_ToTF" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                              <DatePicker fx:id="workExp9_ToTF" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                              <DatePicker fx:id="workExp10_ToTF" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                              <TextField fx:id="workExp1_CompNameTF" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                              <TextField fx:id="workExp1_JobTitleTF" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                              <TextField fx:id="workExp2_CompNameTF" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                              <TextField fx:id="workExp2_JobTitleTF" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                              <TextField fx:id="workExp3_CompNameTF" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                              <TextField fx:id="workExp3_JobTitleTF" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                              <TextField fx:id="workExp4_CompNameTF" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                              <TextField fx:id="workExp4_JobTitleTF" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                              <TextField fx:id="workExp5_CompNameTF" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                              <TextField fx:id="workExp5_JobTitleTF" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                              <TextField fx:id="workExp6_CompNameTF" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                              <TextField fx:id="workExp6_JobTitleTF" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+                              <TextField fx:id="workExp7_CompNameTF" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                              <TextField fx:id="workExp7_JobTitleTF" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+                              <TextField fx:id="workExp8_CompNameTF" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+                              <TextField fx:id="workExp8_JobTitleTF" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+                              <TextField fx:id="workExp9_CompNameTF" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+                              <TextField fx:id="workExp9_JobTitleTF" GridPane.columnIndex="3" GridPane.rowIndex="9" />
+                              <TextField fx:id="workExp10_CompNameTF" GridPane.columnIndex="2" GridPane.rowIndex="10" />
+                              <TextField fx:id="workExp10_JobTitleTF" GridPane.columnIndex="3" GridPane.rowIndex="10" />
+                           </children>
+                        </GridPane>
+                        <Label layoutX="30.0" layoutY="77.0" prefHeight="20.0" text=" Employment during the past 5 years. Choose number of lines" />
+                        <ComboBox fx:id="emplNumLinesCB" layoutX="362.0" layoutY="75.0" onAction="#workCBHandler" prefHeight="25.0" prefWidth="64.0" visibleRowCount="11" />
+                     
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="languageTAB" text="Languages">
+              <content>
+                <AnchorPane fx:id="languageAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label alignment="TOP_RIGHT" layoutX="133.0" layoutY="31.0" prefHeight="20.0" prefWidth="100.0" text="FRENCH:" textAlignment="RIGHT">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="TOP_RIGHT" layoutX="103.0" layoutY="62.0" prefHeight="20.0" prefWidth="130.0" text="Oral Comprehension" textAlignment="RIGHT" />
+                        <Label alignment="TOP_RIGHT" layoutX="103.0" layoutY="92.0" prefHeight="20.0" prefWidth="130.0" text="Oral Production" textAlignment="RIGHT" />
+                        <Label alignment="TOP_RIGHT" layoutX="103.0" layoutY="122.0" prefHeight="20.0" prefWidth="130.0" text="Written Comprehension" textAlignment="RIGHT" />
+                        <Label alignment="TOP_RIGHT" layoutX="102.0" layoutY="152.0" prefHeight="20.0" prefWidth="130.0" text="Written Production" textAlignment="RIGHT" />
+                        <ComboBox fx:id="fr_listen_CB" layoutX="253.0" layoutY="62.0" prefHeight="25.0" prefWidth="274.0" />
+                        <ComboBox fx:id="fr_speak_CB" layoutX="253.0" layoutY="92.0" prefHeight="25.0" prefWidth="274.0" />
+                        <ComboBox fx:id="fr_read_CB" layoutX="253.0" layoutY="122.0" prefHeight="25.0" prefWidth="274.0" />
+                        <ComboBox fx:id="fr_write_CB" layoutX="253.0" layoutY="152.0" prefHeight="25.0" prefWidth="274.0" />
+                        <Label alignment="TOP_RIGHT" layoutX="134.0" layoutY="202.0" prefHeight="20.0" prefWidth="100.0" text="ENGLISH" textAlignment="RIGHT">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="TOP_RIGHT" layoutX="104.0" layoutY="233.0" prefHeight="20.0" prefWidth="130.0" text="Oral Comprehension" textAlignment="RIGHT" />
+                        <Label alignment="TOP_RIGHT" layoutX="104.0" layoutY="263.0" prefHeight="20.0" prefWidth="130.0" text="Oral Production" textAlignment="RIGHT" />
+                        <Label alignment="TOP_RIGHT" layoutX="104.0" layoutY="293.0" prefHeight="20.0" prefWidth="130.0" text="Written Comprehension" textAlignment="RIGHT" />
+                        <Label alignment="TOP_RIGHT" layoutX="103.0" layoutY="323.0" prefHeight="20.0" prefWidth="130.0" text="Written Production" textAlignment="RIGHT" />
+                        <ComboBox fx:id="en_listen_CB" layoutX="254.0" layoutY="233.0" prefHeight="25.0" prefWidth="274.0" />
+                        <ComboBox fx:id="en_speak_CB" layoutX="254.0" layoutY="263.0" prefHeight="25.0" prefWidth="274.0" />
+                        <ComboBox fx:id="en_read_CB" layoutX="254.0" layoutY="293.0" prefHeight="25.0" prefWidth="274.0" />
+                        <ComboBox fx:id="en_write_CB" layoutX="254.0" layoutY="323.0" prefHeight="25.0" prefWidth="274.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Button fx:id="nextB" layoutX="568.0" layoutY="517.0" mnemonicParsing="false" onAction="#nextButtonHandler" prefHeight="25.0" prefWidth="82.0" text="Next" />
+      <Button fx:id="saveB" layoutX="390.0" layoutY="517.0" mnemonicParsing="false" onAction="#saveButtonHandler" prefHeight="25.0" prefWidth="82.0" text="Save" />
+      <Button fx:id="exitB" layoutX="656.0" layoutY="517.0" mnemonicParsing="false" onAction="#exitBHandler" prefHeight="25.0" prefWidth="82.0" text="Exit" />
+      <Button fx:id="prevB" layoutX="479.0" layoutY="517.0" mnemonicParsing="false" onAction="#prevButtonHandler" prefHeight="25.0" prefWidth="82.0" text="Previous" />
+      <Button fx:id="findB" layoutX="188.0" layoutY="517.0" mnemonicParsing="false" onAction="#findButtonHandler" prefHeight="25.0" prefWidth="82.0" text="Find" />
+      <Button fx:id="cancelSearchB" layoutX="283.0" layoutY="517.0" mnemonicParsing="false" onAction="#cancelSearchBHandler" prefHeight="25.0" prefWidth="82.0" text="Cancel" />
+      <MenuButton fx:id="searchMB" layoutX="31.0" layoutY="517.0" mnemonicParsing="false" onAction="#familyMembersCBHandler" prefHeight="25.0" prefWidth="82.0" text="Search">
+        <items>
+          <MenuItem fx:id="searchByApplNumberMI" mnemonicParsing="false" onAction="#searchByApplNumberHandler" text="by Application Number" />
+          <MenuItem fx:id="searchByNameMI" mnemonicParsing="false" onAction="#searchByNameAndDOBHandler" text="by Name and DOB" />
+            <MenuItem fx:id="searchByPassportMI" mnemonicParsing="false" onAction="#searchByPassportHandler" text="by Passport" />
+        </items>
+      </MenuButton>
+   </children>
+</AnchorPane>

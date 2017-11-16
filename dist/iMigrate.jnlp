@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="iMigrate.jnlp">
+  <information>
+    <title>iMigrate</title>
+    <vendor>Volodymyr Yesin</vendor>
+    <description>Easy and Simple Software for Managing immigration Applications</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="ImmigrationProject.jar" size="79159" download="eager" />
+    <jar href="lib/ojdbc5.jar" size="1996390" download="eager" />
+  </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="iMigrate" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="immigrationproject.FXMain"  name="iMigrate" />
+  <update check="always"/>
+</jnlp>
